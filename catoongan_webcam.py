@@ -62,7 +62,7 @@ while True:
         output_tensor = model(input_tensor.to(device))
 
     output_image = output_tensor[0]
-    output_image = output_image * 0.5 + 0.5
+    output_image = (output_image * 0.5 + 0.5).to('cpu')
 
     output_array = (output_image.numpy() * 255).clip(0,255).astype('uint8')
     output_array = np.transpose(output_array, (1, 2, 0))
