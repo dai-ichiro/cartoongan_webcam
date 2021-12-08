@@ -4,3 +4,21 @@ My repository is based on https://github.com/Yijunmaverick/CartoonGAN-Test-Pytor
 
 
 My blog is https://touch-sp.hatenablog.com/entry/2021/10/27/114842
+
+
+## How to use
+~~~
+python cartoongan_webcam.py Hayao
+~~~
+or
+~~~
+python cartoongan_webcam.py Hosoda
+~~~
+or
+~~~
+python cartoongan_webcam.py Paprika
+~~~
+or
+~~~
+python cartoongan_webcam.py Shinkai
+~~~
