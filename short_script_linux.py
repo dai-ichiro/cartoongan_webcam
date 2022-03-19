@@ -4,22 +4,26 @@ import numpy as np
 import cv2
 import torch
 from  torchvision import transforms
-from autogluon.core.utils import download, mkdir
+from autogluon.core.utils import download
 
-mkdir('models')
+os.makedirs('models', exist_ok=True)
 download('http://vllab1.ucmerced.edu/~yli62/CartoonGAN/pytorch_pth/Hayao_net_G_float.pth', path='models')
 download('http://vllab1.ucmerced.edu/~yli62/CartoonGAN/pytorch_pth/Hosoda_net_G_float.pth', path='models')
 download('http://vllab1.ucmerced.edu/~yli62/CartoonGAN/pytorch_pth/Paprika_net_G_float.pth', path='models')
 download('http://vllab1.ucmerced.edu/~yli62/CartoonGAN/pytorch_pth/Shinkai_net_G_float.pth', path='models')
 
-mkdir('network')
+os.makedirs('network', exist_ok=True)
 download('https://github.com/Yijunmaverick/CartoonGAN-Test-Pytorch-Torch/raw/master/network/Transformer.py', path='network')
 
 from network.Transformer import Transformer
 
 max_size = 450
 model_path = 'models'
-style = sys.argv[1]
+
+if(len(sys.argv) < 2):
+    style = 'Shinkai'
+else:
+    style = sys.argv[1]
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
