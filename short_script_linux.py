@@ -43,7 +43,7 @@ while True:
         w = max_size
     else:
         h = max_size
-        w = round(max_size / aspect)
+        w = round(max_size * aspect)
 
     input_array = cv2.resize(frame, dsize=(w, h), interpolation = cv2.INTER_CUBIC)
 
